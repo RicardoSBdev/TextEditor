@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Intrinsics.Arm;
 namespace TextEditor;
 
 class Program
@@ -26,7 +28,23 @@ class Program
         }
     }
 
-    static void Abrir() { }
+    static void Abrir()
+    {
+        Console.Clear();
+        Console.WriteLine("Qual o caminho do arquivo?");
+        string path = Console.ReadLine();
+
+        using (var file = new StreamReader(path))
+        {
+            string text = file.ReadToEnd();
+            Console.WriteLine(text);
+        }
+
+        Console.WriteLine("");
+        Console.ReadLine();
+        MostrarMenu();
+
+    }
 
     static void Editar()
     {
