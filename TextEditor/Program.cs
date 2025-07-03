@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        MostrarMenu();
     }
 
     static void MostrarMenu()
@@ -25,13 +25,18 @@ class Program
         }
     }
 
-    static void Abrir()
-    {
-
-    }
+    static void Abrir() { }
 
     static void Editar()
     {
+        Console.Clear();
+        Console.WriteLine("Digite seu texto abaixo (ESC para sair)");
+        Console.WriteLine("-----------------------");
+        string text = "";
 
+        while (Console.ReadKey().Key != ConsoleKey.Escape)
+        {
+
+        }
     }
 }
